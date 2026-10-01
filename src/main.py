@@ -148,13 +148,13 @@ def draw_hud(camera, clock, font, selected_planet):
     y_pos = config.WINDOW_HEIGHT - 30 
     for text in texts:
         text_surf = font.render(text, True, (0, 255, 100, 255))
-        text_data = pygame.image.tostring(text_surf, "RGBA", True)
+        text_data = pygame.image.tobytes(text_surf, "RGBA", True)
         glRasterPos2i(20, int(y_pos))
         glDrawPixels(text_surf.get_width(), text_surf.get_height(), GL_RGBA, GL_UNSIGNED_BYTE, text_data)
         y_pos -= 25 
 
     ch_surf = font.render("[ + ]", True, (0, 255, 100, 150))
-    ch_data = pygame.image.tostring(ch_surf, "RGBA", True)
+    ch_data = pygame.image.tobytes(ch_surf, "RGBA", True)
     glRasterPos2i(config.WINDOW_WIDTH // 2 - ch_surf.get_width() // 2, config.WINDOW_HEIGHT // 2 - ch_surf.get_height() // 2)
     glDrawPixels(ch_surf.get_width(), ch_surf.get_height(), GL_RGBA, GL_UNSIGNED_BYTE, ch_data)
 
@@ -168,7 +168,7 @@ def draw_hud(camera, clock, font, selected_planet):
         y_info = 120
         for text in info_texts:
             info_surf = font.render(text, True, (255, 200, 0, 255)) 
-            info_data = pygame.image.tostring(info_surf, "RGBA", True)
+            info_data = pygame.image.tobytes(info_surf, "RGBA", True)
             glRasterPos2i(20, int(y_info))
             glDrawPixels(info_surf.get_width(), info_surf.get_height(), GL_RGBA, GL_UNSIGNED_BYTE, info_data)
             y_info -= 25
