@@ -269,6 +269,12 @@ def main():
                     config.LIGHTING_ENABLED = not config.LIGHTING_ENABLED
                 elif event.key == pygame.K_o:
                     config.SHOW_ORBITS = not config.SHOW_ORBITS
+                elif event.key == pygame.K_UP:
+                    config.ORBIT_SPEED_MULTIPLIER += 0.5
+                elif event.key == pygame.K_DOWN:
+                    config.ORBIT_SPEED_MULTIPLIER -= 0.5
+                    if config.ORBIT_SPEED_MULTIPLIER <= 0:
+                        config.ORBIT_SPEED_MULTIPLIER = 0.1
 
         mouse_dx, mouse_dy = pygame.mouse.get_rel()
         camera.process_mouse(mouse_dx, mouse_dy)
