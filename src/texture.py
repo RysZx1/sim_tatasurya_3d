@@ -12,7 +12,7 @@ def load_texture(path):
 
     # 2. Ambil data mentah piksel gambarnya
     # Format RGB dan True biar posisinya pas sesuai sumbu Y OpenGL
-    texture_data = pygame.image.tostring(texture_surface, "RGB", True)
+    texture_data = pygame.image.tobytes(texture_surface, "RGB", True)
     width = texture_surface.get_width()
     height = texture_surface.get_height()
 

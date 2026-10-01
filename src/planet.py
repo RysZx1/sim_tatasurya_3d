@@ -63,8 +63,8 @@ class Planet:
 
     # === RUMUS MATEMATIKA YANG UDAH DI-FIX ===
     def update(self, parent_x=0.0, parent_z=0.0, parent_angle=0.0):
-        self.orbit_angle += self.orbit_speed
-        self.rotation_angle += self.rotation_speed
+        self.orbit_angle += self.orbit_speed * config.ORBIT_SPEED_MULTIPLIER
+        self.rotation_angle += self.rotation_speed * config.ORBIT_SPEED_MULTIPLIER
         
         # INI KUNCINYA: Akumulasi sudut dari hirarki parent (Matahari -> Bumi -> Bulan)
         global_angle = parent_angle + self.orbit_angle
@@ -144,9 +144,12 @@ class Planet:
         glTranslatef(self.distance, 0.0, 0.0)
 
         glPushMatrix()
+        # Khusus Saturnus: Miringkan 28 derajat biar teksturnya sejajar persis sama cincinnya
+        if self.has_ring:
+            glRotatef(28, 1, 0, 0) 
+            
         glRotatef(self.rotation_angle, 0, 1, 0)
-        glRotatef(23.5, 1, 0, 0)
-        
+        glRotatef(-90, 1, 0, 0) # Berdirikan kutub planet jadi tegak lurus ke atas
         if self.texture_id is not None:
             glEnable(GL_TEXTURE_2D)
             glBindTexture(GL_TEXTURE_2D, self.texture_id)

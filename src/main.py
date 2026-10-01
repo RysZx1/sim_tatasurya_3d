@@ -141,6 +141,7 @@ def draw_hud(camera, clock, font, selected_planet):
         f"[P] Rotasi: {'PAUSED' if config.IS_PAUSED else 'PLAYING'}",
         f"[L] Cahaya: {'ON' if config.LIGHTING_ENABLED else 'OFF'}",
         f"[O] Orbit : {'ON' if config.SHOW_ORBITS else 'OFF'}",
+        f"Speed     : {config.ORBIT_SPEED_MULTIPLIER:.1f}x (Panah Atas/Bawah)",
         f"[KLIK KIRI] Scan Planet / [ESC] Keluar"
     ]
     

@@ -12,3 +12,4 @@ FAR_PLANE = 20000.0    # Jarak super jauh biar galaksi nggak bocor
 SHOW_ORBITS = True
 LIGHTING_ENABLED = True
 IS_PAUSED = False
+ORBIT_SPEED_MULTIPLIER = 1.0
